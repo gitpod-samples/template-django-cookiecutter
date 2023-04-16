@@ -1,0 +1,34 @@
+image:
+  file: .gitpod.Dockerfile
+
+# List the start up tasks. Learn more: https://www.gitpod.io/docs/configure/workspaces/tasks
+tasks:
+  - name: Script Task
+    init: |
+     pip3 install cookiecutter
+     python3 -m venv env
+     source env/bin/activate
+     cookiecutter gh:cookiecutter/cookiecutter-django
+     read -p "project_name: " projectvar
+     cd $projectvar
+     pip3 install -r requirements/local.txt
+    
+    #cd <what you have entered as the project_slug at setup stage> 
+    #pip install -r requirements/local.txt
+    
+    command: |
+      echo 'ALLOWED_HOSTS=["gitpod.io"]' >>config/settings/base.py
+      python manage.py runserver
+    
+
+# List the ports to expose. Learn more: https://www.gitpod.io/docs/configure/workspaces/ports
+ports:  
+  - name: Django
+    port: 8000    
+    visibility: private    
+    onOpen: open-preview
+
+# Learn more from ready-to-use templates: https://www.gitpod.io/docs/introduction/getting-started/quickstart
+vscode:  
+  extensions:    
+  - ms-python.python
