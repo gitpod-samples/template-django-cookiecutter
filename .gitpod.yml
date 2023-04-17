@@ -12,15 +12,14 @@ tasks:
      python3 -m venv env
      source env/bin/activate
      pip3 install -r requirements/local.txt
+     echo 'ALLOWED_HOSTS+=["*"]' >> config/settings/local.py
     
     #cd <what you have entered as the project_slug at setup stage> 
     #pip install -r requirements/local.txt
     
     command: |
-      echo 'ALLOWED_HOSTS+=["*"]' >> config/settings/local.py
       python manage.py runserver
     
-
 # List the ports to expose. Learn more: https://www.gitpod.io/docs/configure/workspaces/ports
 ports:  
   - name: Django
