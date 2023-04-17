@@ -6,18 +6,18 @@ tasks:
   - name: Script Task
     init: |
      pip3 install cookiecutter
+     read -p "project_name: " projectvar
+     cookiecutter gh:cookiecutter/cookiecutter-django
+     cd $projectvar
      python3 -m venv env
      source env/bin/activate
-     cookiecutter gh:cookiecutter/cookiecutter-django
-     read -p "project_name: " projectvar
-     cd $projectvar
      pip3 install -r requirements/local.txt
     
     #cd <what you have entered as the project_slug at setup stage> 
     #pip install -r requirements/local.txt
     
     command: |
-      echo 'ALLOWED_HOSTS=["gitpod.io"]' >>config/settings/base.py
+      echo 'ALLOWED_HOSTS+=["*"]' >> config/settings/local.py
       python manage.py runserver
     
 
