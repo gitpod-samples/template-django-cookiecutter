@@ -1,11 +1,14 @@
 # Gitpod django cookiecutter sample
+
 A gitpod sample configured to quickly set up production ready django applications in the cloud using [cookiecutter-django](https://github.com/cookiecutter/cookiecutter-django).
+
 ## Getting Started
 Click the button below to start the workspace
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/themilar/django-cookiecutter-sample/)
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/gitpod-samples/template-django-cookiecutter)
 
 Follow all the onscreen prompts accordingly and make sure the `project_name` is the same both times you're prompted to enter it as shown below:
+
 ```
 project_name: monty
 project_name [My Awesome Project]: monty
